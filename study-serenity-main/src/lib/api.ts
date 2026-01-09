@@ -1,5 +1,7 @@
-// Use environment variable for flexibility, default to relative path for Vercel
-const BASE_URL = import.meta.env.VITE_API_URL || "/api";
+// Smart Auto-Detection:
+// - Vercel/Prod: Use relative path "/api" (proxied by vercel.json)
+// - Local Dev: Use "http://localhost:8000" directly
+const BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.MODE === 'production' ? "/api" : "http://localhost:8000");
 
 export async function getConfidence() {
     const res = await fetch(`${BASE_URL}/confidence`);
