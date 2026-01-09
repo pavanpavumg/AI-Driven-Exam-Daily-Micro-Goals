@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:8000";
+// Use environment variable for flexibility, default to relative path for Vercel
+const BASE_URL = import.meta.env.VITE_API_URL || "/api";
 
 export async function getConfidence() {
     const res = await fetch(`${BASE_URL}/confidence`);
