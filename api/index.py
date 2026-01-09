@@ -13,3 +13,7 @@ backend_path = os.path.join(project_root, "study-serenity-main", "exam-anxiety-a
 sys.path.append(backend_path)
 
 from main import app
+
+# Vercel rewrites /api/* to this function, so we must tell FastAPI
+# that it's running behind that path prefix.
+app.root_path = "/api"
