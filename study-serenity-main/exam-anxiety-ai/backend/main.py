@@ -3,8 +3,9 @@ from fastapi.middleware.cors import CORSMiddleware
 from logic.micro_goals import generate_micro_goals
 from logic.confidence_score import calculate_confidence
 from logic.encouragement import generate_message
+import os
 
-app = FastAPI()
+app = FastAPI(root_path=os.environ.get("FASTAPI_ROOT_PATH", ""))
 
 app.add_middleware(
     CORSMiddleware,

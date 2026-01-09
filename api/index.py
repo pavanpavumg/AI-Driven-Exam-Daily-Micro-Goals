@@ -12,8 +12,7 @@ sys.path.append(project_root)
 backend_path = os.path.join(project_root, "study-serenity-main", "exam-anxiety-ai", "backend")
 sys.path.append(backend_path)
 
-from main import app
+# Set the root_path env var BEFORE importing app
+os.environ["FASTAPI_ROOT_PATH"] = "/api"
 
-# Vercel rewrites /api/* to this function, so we must tell FastAPI
-# that it's running behind that path prefix.
-app.root_path = "/api"
+from main import app
