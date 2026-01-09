@@ -1,0 +1,12 @@
+{
+    "name": "study-serenity-root",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "install-client": "cd study-serenity-main && npm install",
+        "build": "cd study-serenity-main && npm run build"
+    },
+    "workspaces": [
+        "study-serenity-main"
+    ]
+}
